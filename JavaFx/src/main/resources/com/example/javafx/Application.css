@@ -1,0 +1,16 @@
+.root{
+    -fx-background-color: black;
+}
+.label{
+    -fx-font-family: "Lucida Console";
+    -fx-font-size: 20;
+    -fx-text-fill: white;
+    -fx-alignment: center;
+}
+#titleLabel{
+    -fx-font-size: 60;
+}
+#textLabel{
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(30, 188, 111);
+}
