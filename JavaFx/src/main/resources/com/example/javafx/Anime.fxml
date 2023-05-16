@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.AnimeController">
+   <children>
+      <Polygon fx:id="myShape" fill="DODGERBLUE" layoutX="272.0" layoutY="190.0" points="-173.20001220703125, 116.0, 50.0, 40.0, 50.0, 10.0" stroke="BLACK" strokeType="INSIDE" />
+   </children>
+</AnchorPane>
