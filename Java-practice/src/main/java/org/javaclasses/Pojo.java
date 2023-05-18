@@ -30,5 +30,7 @@ public class Pojo {
         this.customerId = customerId;
     }
 
+    //we can include methods also i pojo
+
 
 }
