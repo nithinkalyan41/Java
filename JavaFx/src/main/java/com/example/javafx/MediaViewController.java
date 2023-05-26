@@ -24,7 +24,7 @@ public class MediaViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-            file = new File("file:videoplayback.mp4");
+            file = new File("videoplayback.mp4");
             media = new Media(file.toURI().toString());
     }
     public void playMedia(){
