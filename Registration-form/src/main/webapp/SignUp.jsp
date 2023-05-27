@@ -23,11 +23,22 @@
                         <div class="card">
                             <div class="card-content">
                                 <h3 style="margin-top:10px;" class="center-align">Register Here!!</h3>
+                                <h5 id="msg" class="center-align"></h5>
                                 <div class="form center-align">
-                                    <form action="register" method="post">
+                                    <form action="register" method="post" id="Myform">
                                         <input type="text" name="user_name" placeholder="Enter name">
                                         <input type="password" name="user_password" placeholder="Enter password">
                                         <input type="email" name="user_email" placeholder="Enter email">
+                                        <div class="file-field input-field">
+                                            <div class="btn blue">
+                                                <span>File</span>
+                                                <input name="image" type="file">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+
                                         <button type="submit" class="btn"> SUBMIT</button>
                                     </form>
                                 </div>
@@ -88,7 +99,44 @@
         <script>
             $(document).ready(function (){
                 console.log("page is ready")
-            })
+                $("#Myform").on('submit',function (event){
+                    event.preventDefault();
+                    //var f = $(this).serialize();
+                    let f = new FormData(this);
+                    console.log(f);
+                    $(".loader").show();
+                    $(".form").hide();
+                    $.ajax({
+                        url:"register",
+                        data:f,
+                        method:'POST',
+                        success:function (data,textStatus,jqXHR){
+                            $(".loader").hide();
+                            $(".form").show();
+
+                            console.log("success");
+                            if(data.trim()==='DONE'){
+                                $("#msg").html("SUCESSFULLY REGISTERED");
+                                $("#msg").addClass('green-text');
+                            }
+                            else{
+                                $("#msg").html("SOMETHING WENT WRONG");
+                                $("#msg").addClass('red -text');
+                            }
+                        },
+                        error:function (jqXHR,textStatus,errorThrown){
+                            $(".loader").hide();
+                            $(".form").show();
+
+                            console.log("error");
+                            $("#msg").html("SOMETHING WENT WRONG");
+                            $("#msg").addClass('red-text');
+                        },
+                        processData: false,
+                        contentType:false
+                    })
+                })
+            });
         </script>
 </body>
 </html>
