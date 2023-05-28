@@ -38,12 +38,12 @@ public class register extends HttpServlet {
             Thread.sleep(3000);
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/reg","root","oracle");
-            String q = "insert into user(name,password,email,image) values(?,?,?,?)";
+            String q = "insert into user(name,password,email) values(?,?,?)";
             PreparedStatement pstmt = conn.prepareStatement(q);
             pstmt.setString(1,name);
             pstmt.setString(2,password);
             pstmt.setString(3,email);
-            pstmt.setString(4,file);
+            //pstmt.setString(4,file);
 
             pstmt.executeUpdate();
 

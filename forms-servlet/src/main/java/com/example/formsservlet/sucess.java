@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/secess")
+@WebServlet("/sucess")
 
 public class sucess extends HttpServlet {
     @Override
