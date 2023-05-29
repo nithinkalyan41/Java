@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function loadabout(){
+            var req = new XMLHttpRequest();
+            req.open("GET","about.html");
+            req.onreadystatechange= function(){
+                if(this.readyState==4 && this.status==200){
+                    console.log(this.responseText);
+                    document.getElementById("container").innerHTML=this.responseText;
+                }
+            };
+            req.send();
+        }
+    </script>
+</head>
+<body>
+    <h1>welcome to homepage</h1>
+    <h2>learning AJAX</h2>
+    <h1><a href="about.html"> about page</a></h1>
+    <button onclick="loadabout()">load about</button>
+    <button id="jsnbtn">jquery</button>
+    <div id="container">
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $("#jsnbtn").click(function(){
+                $.get("data.json",function (data){
+                    console.log(data);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
