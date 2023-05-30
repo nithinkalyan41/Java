@@ -16,11 +16,13 @@ public class servlet2 extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
+            String name = (String) req.getAttribute("name");
+            out.println(name);
 
-         Cookie[] cookies = req.getCookies();
-         Boolean f = false;
-        String name ="";
-        if(cookies==null){
+         //Cookie[] cookies = req.getCookies();
+        /* Boolean f = false;
+        String name ="";*/
+       /* if(cookies==null){
             out.println("<h1>u r new user go to register</h1>");
         }
         else{
@@ -31,13 +33,13 @@ public class servlet2 extends HttpServlet {
                         name=c.getValue();
                     }
             }
-        }
-        if(f) {
+        }*/
+        /*if(f) {
             out.println("<h1>welcome " + name + "</h1>");
             out.println("<a href='servlet1'>got to servlet one</a>");
         }
         else{
             out.println("<h1>u r new user go to register</h1>");
-        }
+        }*/
     }
 }
