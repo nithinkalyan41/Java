@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/index.css">
 
     <!-- Compiled and minified JavaScript -->
-    
 </head>
 <body>
     <div id="container">

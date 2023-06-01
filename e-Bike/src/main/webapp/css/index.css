@@ -33,7 +33,7 @@ body{
 .button:hover{
     cursor:pointer;
     text-decoration:underline ;
-    box-shadow:  3px 5px 5px 3px white;
+    box-shadow:  1px 2px 2px 1px white;
     margin:5px;
 }
 .logo{
@@ -93,8 +93,8 @@ h2{
 .bike-button:hover{
     cursor: pointer;
     text-decoration:underline;
-    box-shadow:  2px 3px 3px 2px black;
-    margin:5px;
+    box-shadow:  1px 2px 2px 1px black;
+    margin-top:2px;
 }
 .bike-imgs{
     width: 250px;
