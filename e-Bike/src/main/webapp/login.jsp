@@ -29,12 +29,12 @@
                             <h5 id="msg" class="center-align"></h5>
                             <div class="form center-align">
                               <img src="images/icons-for-free-137530.png" alt="icon" style="width:40%">
-                                <form action="register" method="post" id="Myform">
+                                <form action="login" method="post" id="Myform">
                                     <input type="text" name="user_name" placeholder="Enter name">
                                     <input type="password" name="user_password" placeholder="Enter password">
                                     <button type="submit" class="btn"> LOGIN</button>
-                                    
-                                    <button type="submit" class="btn"> Register</button>
+                                    <br>
+                                    <a href="register.jsp">Create Account</a>
                                 </form>
                             </div>
                          
@@ -44,5 +44,7 @@
                   </div>        
                             
         </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -17,9 +17,9 @@
             <img src="images/logo-new.png" alt="logo" class="logo">
             </div>
             <ul class="list">
-                    <li><Button name="Home" class="button">Home</Button></li>
+                    <li><a href="home.jsp"></a> <Button name="Home" class="button">Home</Button></li>
                     <li><Button name="About us" class="button">About us</Button></li>
-                    <li><button name="Login" class ="button">Login/signup</button></li>
+                <li><a href="login.jsp"><button name="LogOut" class ="button">LogOut</button></a></li>
                     </ul>
         </div>  
     </div> 
