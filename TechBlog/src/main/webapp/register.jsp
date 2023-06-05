@@ -29,7 +29,7 @@
                     <p>Register Here!!!</p>
                 </div>
                 <div class="card-body">
-                  <form id="myform" action="registration" method="post">
+                  <form id="myform" action="registration" method="POST">
                     <div class="form-group">
                       <label for="username">username</label>
                       <input type="text" name="user_name"  class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter name">
@@ -56,7 +56,12 @@
                       <label class="form-check-label" for="exampleCheck1">Agree terms and conditions</label>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="container text-center" id="loader" style="display: none;">
+                    <span class="fa fa-refresh fa-spin fa-3x" ></span>
+                      <h4>Please wait.....</h4>
+                    </div>
+                    <br>
+                    <button id="submit-btn" type="submit" class="btn btn-primary">Submit</button>
                   </form>
                 </div>
 
@@ -67,30 +72,49 @@
 
 
 
-
 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
         <script>
           $(document).ready(function(){
+            console.log("loaded........")
                 $('#myform').on('submit',function(event){
                   event.preventDefault();
                    let form = new FormData(this);
+                   $("#submit-btn").hide();
+                   $("#loader").show();
+
                    //send register servlet
                    $.ajax({
                      url:"registration",
                      type:'POST',
                      data:form,
-                     success:function(data,textStatus,jqHXR){
+                     success:function(data,textStatus,jqXHR){
                        console.log(data)
+                       $("#submit-btn").show();
+                       $("#loader").hide();
+                       if(data.trim()==="done") {
+                         swal("registered Successfully We are redirecting to Login page.")
+                                 .then((value) => {
+                                   window.location = "login.jsp"
+                                 });
+                       }
+                       else{
+                         swal(data);
+                       }
+
+
                      },
-                     error:function(jqHXR,textStatus,errorThrown){
+                     error:function(jqXHR,textStatus,errorThrown){
                         console.log(jqXHR)
+                       swal("Something Went Wrong")
+                       $("#submit-btn").show();
+                       $("#loader").hide();
+
                      },
-                     processType:false,
+                     processData:false,
                      contentType:false
-
-
                    });
                 });
           });
