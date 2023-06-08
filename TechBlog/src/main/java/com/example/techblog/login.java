@@ -1,22 +1,16 @@
 package com.example.techblog;
 
-import com.google.protobuf.*;
 import com.techblog.dao.UserDao;
 import com.techblog.entites.User;
 import com.techblog.entites.message;
 import com.techblog.helper.ConnectionProvider;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.util.List;
-import java.util.Map;
 
 @WebServlet("/login")
 public class login extends HttpServlet {
@@ -31,8 +25,10 @@ public class login extends HttpServlet {
         if(user==null){
             //login error
             //out.println("Invalid Details...... Try again");
-            message msg = new message("Invalid Details","error");
-
+            message msg = new message("Invalid Details","error","alert-danger");
+            HttpSession session = req.getSession();
+            session.setAttribute("msg",msg);
+            resp.sendRedirect("login.jsp");
         }
         else{
             //login success

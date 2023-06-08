@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.techblog.entites.message" %><%--
   Created by IntelliJ IDEA.
   User: nithin
   Date: 04/06/23
@@ -29,6 +29,17 @@
                     <br>
                     <p>log in here</p>
                   </div>
+                  <%
+                    message m = (message)session.getAttribute("msg");
+                    if(m!=null){
+                  %>
+                  <div class="alert <%= m.getCssClass()%>" role="alert">
+                    <%=  m.getContent()%>
+                  </div>
+                  <%
+                    }
+
+                  %>
                   <div class="card-body">
                     <form action="login" method="post">
                       <div class="form-group">
