@@ -140,7 +140,7 @@
             $('#edit-profile-button').click(function(){
             $('#profile-details').hide()
             $('#profile-edit').show()
- 
+
 
 
             })
