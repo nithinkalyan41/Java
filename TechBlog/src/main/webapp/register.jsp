@@ -82,8 +82,8 @@
                 $('#myform').on('submit',function(event){
                   event.preventDefault();
                    let form = new FormData(this);
-                   $("#submit-btn").hide();
-                   $("#loader").show();
+                   // $("#submit-btn").hide();
+                   // $("#loader").show();
 
                    //send register servlet
                    $.ajax({
@@ -92,8 +92,8 @@
                      data:form,
                      success:function(data,textStatus,jqXHR){
                        console.log(data)
-                       $("#submit-btn").show();
-                       $("#loader").hide();
+                       // $("#submit-btn").show();
+                       // $("#loader").hide();
                        if(data.trim()==="done") {
                          swal("registered Successfully We are redirecting to Login page.")
                                  .then((value) => {
