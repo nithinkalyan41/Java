@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot</title>
+  <link rel="stylesheet" href="chatstyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="img/bot.png">
+</head>
+<body>
+  <div class="container">
+  <div class="chat-container">
+    <div style="display: flex; justify-content: center;">
+      <img src="img/bot.png" alt="logo" style="width:200px;height: 200px;">
+    </div>
+    
+    <div class="chat-display" id="chat-display" >
+      <div class="chat-message bot" >
+        <div class="message bot">
+          <div class="fun bot">
+            🤖 Hello! How can I assist you today?
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="Type your message...">
+      <button onclick="sendMessage()"><i class="fa fa-paper-plane-o" style="font-size:24px"></i></button>
+    </div>
+  </div>
+</div>
+
+  <script src="chatjavascript.js"></script>
+</body>
+</html>
